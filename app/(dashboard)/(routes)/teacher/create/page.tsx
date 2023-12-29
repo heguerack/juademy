@@ -43,10 +43,12 @@ export default function CreatePage() {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values)
+
     try {
-      const res = await axios.post('/api/course', values)
+      const res = await axios.post('/api/courses', values)
+      console.log(res)
       toast.success('Nuevo curso ha sido creado!')
-      router.push(`/teacher/couses/${res.data.id}`)
+      router.push(`/teacher/courses/${res.data.id}`)
     } catch (error) {
       toast.error('Something went wrong')
     }
