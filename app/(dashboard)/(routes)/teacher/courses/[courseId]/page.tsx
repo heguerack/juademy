@@ -1,9 +1,11 @@
 import { IconBadge } from '@/components/IconBadge'
 import prisma from '@/lib/connect'
 import { auth } from '@clerk/nextjs'
-import { Course } from '@prisma/client'
+
 import { LayoutDashboard } from 'lucide-react'
 import { redirect } from 'next/navigation'
+
+import TitleForm from './_components/TitleForm'
 
 export default async function page({
   params,
@@ -60,6 +62,8 @@ export default async function page({
             <IconBadge icon={LayoutDashboard} />
             <h2 className='text-xl'>Customiza tu curso</h2>
           </div>
+          {/* we could also get the courseId with initialData.id , but we are passing the id right away from here*/}
+          <TitleForm initialData={course.title} courseId={course.id} />
         </div>
       </div>
     </div>
